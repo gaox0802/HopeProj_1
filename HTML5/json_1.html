@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JSON Learning</title>
+</head>
+<body>
+	<h2>JS create Json model</h2>
+	<p>
+		网站名称: <span id="jname"></span><br /> 
+		网站地址: <span id="jurl"></span><br /> 
+		网站 slogan: <span id="jslogan"></span><br /> 
+	</p>
+	<p>
+		Test: <span id="demo"></span><br />
+	</p>
+<script>
+	var JSONObject = {"sites": [
+									{ "name": "菜鸟教程", "url": "www.runoob.com", "slogan": "学的不仅是技术，更是梦想！"},  
+									{ "name": "google", "url": "www.google.com", "slogan": "在变与不变中找到平衡点"}, 
+									{ "name": "微博", "url": "www.weibo.com", "slogan": "与其在别处仰望，不如在这里并肩"}
+								]
+					};
+	document.getElementById("jname").innerHTML=JSONObject.sites[2].name
+	document.getElementById("jurl").innerHTML=JSONObject.sites[2].url
+	document.getElementById("jslogan").innerHTML=JSONObject.sites[2].slogan
+</script>
+<!-- <script>
+	var myObj = {"name": "runoob", "alexa": 10000, "site": ["Google", "Runboo", "TaoBao"]};
+	myObj.site[2]="Github"
+	// delete myObj.site
+	myObj.site=null
+	document.getElementById("demo").innerHTML=myObj.site[2]
+	// for (x in myObj) {
+	// 	document.getElementById("demo").innerHTML += x + ":" + myObj[x] + "<br />"
+	// }
+</script> -->
+<!-- <script type="text/javascript">
+	var str = '{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }'
+	// document.write(str)
+	var obj = JSON.parse(str)
+	for (x in obj) {
+		document.write(x + ":" + obj[x] + "<br />")
+	}
+</script> -->
+<script>
+	var text = '{"name":"Runoob", "initDate":"2013-12-14", "site":"www.runoob.com"}';
+	var obj = JSON.parse(text, function (key, value) {
+		if (key == "initDate") {
+			return new Date(value);
+		} else {
+			return value;
+		}
+	});
+
+	document.write(obj.name + "<br />" + "Date:" + obj.initDate)
+</script>
+
+<!-- <p>查看 JSON 文件数据 <a href="https://www.runoob.com/try/ajax/json_demo.txt" target="_blank">json_demo.txt</a></p> -->
+
+</body>
+</html>

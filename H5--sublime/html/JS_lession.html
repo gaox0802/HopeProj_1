@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  <meta name="format-detection" content="telephone=no"> 
+  <meta name="keywords" content="test"> 
+  <meta name="description" content="test"> 
+  <title>title</title> 
+  <script type="text/javascript">
+    function getImageRect() {
+    var results = new Array();
+    for (i = 0; ; i++) {
+        var imageID = "fimg_" + i;
+        var image = document.getElementById(imageID);
+        if(image)
+        {
+            var rect = image.getBoundingClientRect();
+            var theRect = new Object();
+            theRect.bottom = rect.bottom;
+            theRect.height = rect.height;
+            theRect.left = rect.left;
+            theRect.right = rect.right;
+            theRect.top = rect.top + window.pageYOffset;
+            theRect.width = rect.width;
+            theRect.id = imageID;
+            results[i] = theRect;
+            
+        } else {
+            break;
+        }
+    }
+    var jsonString = JSON.stringify(results);
+    return jsonString;
+}
+
+  </script> 
+  <script type="text/javascript" src="fang.js"></script> 
+  <link rel="stylesheet" type="text/css" href="css.css">
+ </head> 
+ <body> 
+  <div class="dtCon"> 
+   <div class="dtWord"> 
+    <p style="text-indent:2em;">泛海国际价格待定。容积率1.51%。泛海国际楼盘地址：朝阳公园桥东北角。物业费描述：2#地与3#地9.8元/平方米/月； 4#地7.8元/平方米。泛海国际项目为多层,高层,超高层。</p>
+    <p style="text-indent:2em;">泛海国际绿化率33.70%。主力户型为65.00平-276.79平1居-4居。精装修交房。2016-04-20 &nbsp;开盘范围。敬请关注。</p>
+    <p style="text-indent:2em;">泛海国际售楼处电话为：400-890-0000 转 807852。</p>
+    <!-- <p style="text-align: center;"><a href="soufun://waptoapp/{&quot;destination&quot;:&quot;showBigPic&quot;,&quot;index&quot;:&quot;0&quot;}"><img width="900" align="center" id="fimg_0" height="600" src="http://img10.soufunimg.com/static/xfchat/2016_04/18/M00/00/04/wKgHFFcUugKIE9IpAAVLppoka-8AAABpgD2Lb8ABUu-102.jpg"></a></p> -->
+    <p style="text-align: center;"><a href="soufun://waptoapp/{&quot;destination&quot;:&quot;showBigPic&quot;,&quot;index&quot;:&quot;0&quot;}"><img align="center" id="fimg_0" src="http://img10.soufunimg.com/static/xfchat/2016_04/18/M00/00/04/wKgHFFcUugKIE9IpAAVLppoka-8AAABpgD2Lb8ABUu-102.jpg" width="900" height="600"></a></p>
+    <p style="text-align: center;">泛海国际wKgHFFcUugKIE9IpAAVLppoka-8AAABpgD2Lb8AB</p> 
+   </div> 
+  </div>  
+  <script type="text/javascript" src="fang.js"></script> 
+ </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas动态画圆</title>
+	<style type="text/css">
+		body {
+			padding: 50px 100px;
+		}
+		#canvas {
+			background-color: lightgreen;
+			margin-top: 25px;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" placeholder="请输入百分比">
+	<input type="button" value="动态绘制">
+	<canvas id="canvas" width=500px height=500px></canvas>
+	<script type="text/javascript">
+		var text = document.getElementsByTagName("input")[0];
+		var btn  = document.getElementsByTagName("input")[1];
+		var canvas = document.getElementById("canvas");
+
+		var radius = 100;
+		var context = canvas.getContext('2d');
+		function draw(end) {
+			context.beginPath();
+			context.moveTo(canvas.width/2, canvas.height/2);
+			context.arc(canvas.width/2, canvas.height/2, radius, 0, end, false);
+			context.closePath();
+			context.fillStyle = "red";
+			context.fill();
+		}
+
+		function change(value) {
+			var num = value.substring(0, value.length-1);
+			return Math.PI*2*num/100;
+		}
+		
+		function inputErr(value) {
+			var regValue = RegExp(/^(100|[1-9]?\d(\.\d\d?)?)%$/);
+			var result = regValue.test(value);
+			return result;
+		}
+
+		btn.onclick = function() {
+			if (!inputErr(text.value)) {
+				alert("请输入百分比");
+				return;
+			}
+
+			var numberEnd = 0;
+			var timer = setInterval(function() {
+				numberEnd ++;
+				draw(numberEnd/100*2*Math.PI);
+				if (numberEnd >= parseInt(text.value)) {
+					draw(change(text.value));
+					clearInterval(timer);
+				}
+			}, 10);
+		}
+	</script>
+</body>
+</html>
